@@ -1,4 +1,4 @@
-import * as PinejsClientCoreFactory from './core'
+import * as PinejsClientCoreFactory from 'pinejs-client-core/core'
 import * as request from 'request'
 import * as Promise from 'bluebird'
 
