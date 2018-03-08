@@ -1,8 +1,8 @@
-import * as PinejsClientCoreFactory from 'pinejs-client-core/core'
+import { PinejsClientCoreFactory } from 'pinejs-client-core'
 import * as request from 'request'
 import * as Promise from 'bluebird'
 
-declare class PinejsClientRequest extends PinejsClientCoreFactory.PinejsClientCore<PinejsClientRequest, Promise<{}>, Promise<number | PinejsClientCoreFactory.AnyObject | PinejsClientCoreFactory.AnyObject[]>> {
+declare class PinejsClientRequest extends PinejsClientCoreFactory.PinejsClientCore<PinejsClientRequest, Promise<{}>, Promise<PinejsClientCoreFactory.PromiseResultTypes>> {
 	constructor(
 		params: string | PinejsClientCoreFactory.Params,
 		backendParams?: {
