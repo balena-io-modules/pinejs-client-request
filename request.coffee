@@ -1,7 +1,7 @@
 _ = require 'lodash'
 request = require 'request'
 Promise = require 'bluebird'
-PinejsClientCore = require './core'
+PinejsClientCore = require 'pinejs-client-core/core'
 BluebirdLRU = require 'bluebird-lru-cache'
 TypedError = require 'typed-error'
 

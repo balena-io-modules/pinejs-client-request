@@ -10,7 +10,7 @@
 
   Promise = require('bluebird');
 
-  PinejsClientCore = require('./core');
+  PinejsClientCore = require('pinejs-client-core/core');
 
   BluebirdLRU = require('bluebird-lru-cache');
 
