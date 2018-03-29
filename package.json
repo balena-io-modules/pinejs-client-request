@@ -1,36 +1,35 @@
 {
   "name": "pinejs-client-request",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "description": "This module provides a request backend for pinejs-client.",
   "main": "request.js",
-  "types": "request.d.ts",
+  "types": "request.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:resin-io-modules/pinejs-client-request.git"
   },
   "author": "Pagan Gazzard <page@resin.io>",
   "scripts": {
-    "lint": "resin-lint request.coffee",
-    "test": "npm run lint && npm run-script prepublishOnly",
+    "test": "npm run-script prepublishOnly",
     "prepublish": "require-npm4-to-publish",
-    "prepublishOnly": "coffee -c request.coffee && tsc"
+    "prepublishOnly": "tsc"
   },
   "license": "MIT",
   "dependencies": {
     "@types/bluebird": "^3.5.20",
     "@types/es6-collections": "^0.5.31",
+    "@types/lodash": "^4.14.104",
+    "@types/memoizee": "^0.4.2",
     "@types/request": "^2.47.0",
     "bluebird": "^3.0.6",
     "bluebird-lru-cache": "^1.0.0",
     "lodash": "^4.17.5",
-    "pinejs-client-core": "^4.2.2",
+    "pinejs-client-core": "^5.0.0",
     "request": "^2.83.0",
     "require-npm4-to-publish": "^1.0.0",
     "typed-error": "^2.0.0"
   },
   "devDependencies": {
-    "coffee-script": "^1.12.7",
-    "resin-lint": "^1.5.0",
     "typescript": "~2.5.3"
   }
 }
