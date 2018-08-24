@@ -3,7 +3,7 @@
   "version": "5.0.0",
   "description": "This module provides a request backend for pinejs-client.",
   "main": "request.js",
-  "types": "request.ts",
+  "types": "request.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:resin-io-modules/pinejs-client-request.git"
