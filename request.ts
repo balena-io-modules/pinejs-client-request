@@ -4,6 +4,8 @@ import * as Promise from 'bluebird'
 import { PinejsClientCoreFactory } from 'pinejs-client-core'
 import TypedError = require('typed-error')
 
+export { PinejsClientCoreFactory } from 'pinejs-client-core'
+
 interface Cache {
 	get(url: string): Promise<CachedResponse>
 	set(url: string, value: CachedResponse): void
