@@ -1,9 +1,9 @@
 {
   "name": "pinejs-client-request",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "This module provides a request backend for pinejs-client.",
   "main": "request.js",
-  "types": "request.ts",
+  "types": "request.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:resin-io-modules/pinejs-client-request.git"
@@ -16,20 +16,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/bluebird": "^3.5.20",
+    "@types/bluebird": "^3.5.23",
     "@types/es6-collections": "^0.5.31",
     "@types/lodash": "^4.14.104",
     "@types/memoizee": "^0.4.2",
-    "@types/request": "^2.47.0",
+    "@types/request": "^2.47.1",
     "bluebird": "^3.0.6",
     "bluebird-lru-cache": "^1.0.0",
-    "lodash": "^4.17.5",
-    "pinejs-client-core": "^5.0.0",
-    "request": "^2.83.0",
+    "lodash": "^4.17.10",
+    "pinejs-client-core": "^5.3.1",
+    "request": "^2.88.0",
     "require-npm4-to-publish": "^1.0.0",
     "typed-error": "^2.0.0"
   },
   "devDependencies": {
-    "typescript": "~2.5.3"
+    "typescript": "^3.0.1"
   }
 }

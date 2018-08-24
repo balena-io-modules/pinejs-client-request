@@ -9,9 +9,14 @@
 		"preserveConstEnums": true,
 		"strictNullChecks": true,
 		"sourceMap": true,
-		"target": "es5"
+		"target": "es5",
+		"declaration": true,
+		"skipLibCheck": true
 	},
 	"include": [
 		"*.ts"
+	],
+	"exclude": [
+		"node_modules"
 	]
 }
