@@ -18,7 +18,7 @@ const BluebirdLRU: BluebirdLRU = require('bluebird-lru-cache')
 
 const requestAsync = Promise.promisify(request)
 
-class StatusError extends TypedError {
+export class StatusError extends TypedError {
 	constructor(
 		message: string,
 		public statusCode: number
