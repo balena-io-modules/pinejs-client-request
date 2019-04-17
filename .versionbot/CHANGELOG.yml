@@ -1,0 +1,58 @@
+- commits:
+  - author: Cameron Diver
+    body: ""
+    footers:
+      change-type: minor
+      signed-off-by: Cameron Diver <cameron@balena.io>
+    hash: e0874db1e45f6059a14494255986b293ae3af2e5
+    subject: Export the StatusError from module
+  date: "2019-02-12T11:27:25Z"
+  version: 5.2.0
+- commits:
+  - author: Pagan Gazzard
+    body: ""
+    footers:
+      change-type: minor
+      signed-off-by: Pagan Gazzard <page@resin.io>
+    hash: 8ef1619990c1ebd629d82c88a40177d1dff39596
+    subject: Export `PinejsClientCoreFactory` to make it easier to use those types
+  - author: Pagan Gazzard
+    body: ""
+    footers:
+      change-type: minor
+      signed-off-by: Pagan Gazzard <page@resin.io>
+    hash: 7d6aefc1e5f634f01a77f3a18743b1d4f5159590
+    subject: Export types via a declaration file to avoid issues with ts versions
+  - author: Pagan Gazzard
+    body: ""
+    footers:
+      change-type: minor
+      signed-off-by: Pagan Gazzard <page@resin.io>
+    hash: 7122aced6a6042f9b79dc41ad680f8ac3a98bf9e
+    subject: Update to typescript 3
+  date: "2018-08-24T19:17:25Z"
+  version: 5.1.0
+- commits:
+  - author: Pagan Gazzard
+    body: ""
+    footers:
+      change-type: major
+    hash: 8cfc14ce87770a7e7b80de7e6350901d459f82ae
+    subject: Update pinejs-client-core to ^5.0.0
+  - author: Pagan Gazzard
+    body: ""
+    footers:
+      change-type: major
+    hash: dcd5d3e198304246a47b8dc6577379eb2c623619
+    subject: Convert request to typescript
+  date: "2018-03-29T03:52:26Z"
+  version: 5.0.0
+- commits:
+  - author: Pagan Gazzard
+    body: ""
+    footers:
+      change-type: patch
+    hash: 34d314754abb19a4502359064850701f38f5f015
+    subject: Switch to circleci and enable auto-publishing
+  date: "2018-03-14T16:52:33Z"
+  version: 4.0.2
