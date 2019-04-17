@@ -2,7 +2,7 @@ import * as _ from 'lodash'
 import * as request from 'request'
 import * as Promise from 'bluebird'
 import { PinejsClientCoreFactory } from 'pinejs-client-core'
-import TypedError = require('typed-error')
+import { TypedError } from 'typed-error';
 
 export { PinejsClientCoreFactory } from 'pinejs-client-core'
 
