@@ -9,7 +9,7 @@
 		"preserveConstEnums": true,
 		"strictNullChecks": true,
 		"sourceMap": true,
-		"target": "es5",
+		"target": "es2016",
 		"declaration": true,
 		"skipLibCheck": true
 	},
