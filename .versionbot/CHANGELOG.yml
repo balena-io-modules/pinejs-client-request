@@ -1,4 +1,14 @@
 - commits:
+    - subject: 'Update target to es2016, part of/fixing the typed-error bump'
+      hash: 6025bf882f6f2675b321571f327f59a4908da539
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 6.0.1
+  date: 2019-04-23T20:43:52.266Z
+- commits:
     - subject: 'typed-error: Update to v3.1.0'
       hash: 82e50ac9992b3a157360eef5163f43a90fa9feea
       body: |
