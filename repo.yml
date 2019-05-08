@@ -2,3 +2,5 @@ type: 'node'
 upstream:
   - repo: 'typed-error'
     url: 'https://github.com/balena-io-modules/typed-error'
+  - repo: 'pinejs-client-core'
+    url: 'https://github.com/balena-io/pinejs-client-js'
