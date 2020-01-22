@@ -1,4 +1,14 @@
 - commits:
+    - subject: Add CODEOWNERS
+      hash: efc40c853d4392b866eb3784839871fad086fccd
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 6.0.3
+  date: 2020-01-22T16:35:52.630Z
+- commits:
     - subject: Add node 12 tests
       hash: 624b1efadfbb920d718bd2f54f99e8eef0e5c645
       body: ''
