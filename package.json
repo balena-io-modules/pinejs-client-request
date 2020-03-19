@@ -10,7 +10,10 @@
   },
   "author": "Pagan Gazzard <page@resin.io>",
   "scripts": {
-    "test": "npm run-script prepublishOnly",
+    "lint:fix": "balena-lint --typescript --fix request.ts",
+    "lint": "balena-lint --typescript request.ts",
+    "pretest": "npm run lint",
+    "test": "npm run prepublishOnly",
     "prepublish": "require-npm4-to-publish",
     "prepublishOnly": "tsc"
   },
@@ -29,7 +32,20 @@
     "typed-error": "^3.2.0"
   },
   "devDependencies": {
+    "@balena/lint": "^4.0.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "require-npm4-to-publish": "^1.0.0",
     "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "balena-lint --typescript --fix"
+    ]
   }
 }
