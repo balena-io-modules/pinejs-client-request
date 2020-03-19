@@ -1,4 +1,14 @@
 - commits:
+    - subject: Add linting
+      hash: 988d58f708da1bd1a4389a1a2129fa5d30706065
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 6.1.1
+  date: 2020-03-19T21:47:11.959Z
+- commits:
     - subject: Move require-npm4-to-publish to dev dependencies
       hash: 084a19f61c408643d9a9448c1d656bed7791fec5
       body: ''
