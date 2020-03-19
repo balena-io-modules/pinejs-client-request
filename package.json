@@ -16,20 +16,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/bluebird": "^3.5.26",
+    "@types/bluebird": "^3.5.30",
     "@types/es6-collections": "^0.5.31",
-    "@types/lodash": "^4.14.123",
-    "@types/memoizee": "^0.4.2",
-    "@types/request": "^2.48.1",
-    "bluebird": "^3.5.4",
+    "@types/lodash": "^4.14.149",
+    "@types/memoizee": "^0.4.3",
+    "@types/request": "^2.48.4",
+    "bluebird": "^3.7.2",
     "bluebird-lru-cache": "^1.0.1",
-    "lodash": "^4.17.11",
-    "pinejs-client-core": "^5.3.6",
-    "request": "^2.88.0",
-    "require-npm4-to-publish": "^1.0.0",
-    "typed-error": "^3.1.0"
+    "lodash": "^4.17.15",
+    "pinejs-client-core": "^5.6.11",
+    "request": "^2.88.2",
+    "typed-error": "^3.2.0"
   },
   "devDependencies": {
-    "typescript": "^3.4.5"
+    "require-npm4-to-publish": "^1.0.0",
+    "typescript": "^3.8.3"
   }
 }
