@@ -19,24 +19,24 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/bluebird": "^3.5.30",
-    "@types/es6-collections": "^0.5.31",
-    "@types/lodash": "^4.14.149",
-    "@types/memoizee": "^0.4.3",
-    "@types/request": "^2.48.4",
+    "@types/bluebird": "^3.5.32",
+    "@types/es6-collections": "^0.5.32",
+    "@types/lodash": "^4.14.154",
+    "@types/memoizee": "^0.4.4",
+    "@types/request": "^2.48.5",
     "bluebird": "^3.7.2",
     "bluebird-lru-cache": "^1.0.1",
     "lodash": "^4.17.15",
-    "pinejs-client-core": "^5.6.11",
+    "pinejs-client-core": "^5.8.0",
     "request": "^2.88.2",
     "typed-error": "^3.2.0"
   },
   "devDependencies": {
-    "@balena/lint": "^4.0.1",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
+    "@balena/lint": "^5.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
     "require-npm4-to-publish": "^1.0.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   },
   "husky": {
     "hooks": {

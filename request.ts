@@ -87,7 +87,7 @@ export class PinejsClientRequest extends PinejsClientCore<
 			// version, and store whatever the (successful) result is.
 			return this.cache
 				.get(params.url)
-				.then(cached => {
+				.then((cached) => {
 					if (params.headers == null) {
 						params.headers = {};
 					}
@@ -120,7 +120,7 @@ export class PinejsClientRequest extends PinejsClientCore<
 						},
 					);
 				})
-				.then(cached => {
+				.then((cached) => {
 					this.cache!.set(params.url, cached);
 					return _.cloneDeep(cached.body);
 				});
