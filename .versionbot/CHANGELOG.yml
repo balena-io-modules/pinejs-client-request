@@ -1,4 +1,14 @@
 - commits:
+    - subject: Remove unused dependencies
+      hash: 58a13f0fbe9692be029812db19f22aac7bd6f0f9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 6.1.3
+  date: 2020-06-04T15:00:55.621Z
+- commits:
     - subject: Update dependencies
       hash: 0087b900328f1ba02699fc75664b0d23eb433e67
       body: |
