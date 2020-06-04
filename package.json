@@ -20,9 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/bluebird": "^3.5.32",
-    "@types/es6-collections": "^0.5.32",
     "@types/lodash": "^4.14.154",
-    "@types/memoizee": "^0.4.4",
     "@types/request": "^2.48.5",
     "bluebird": "^3.7.2",
     "bluebird-lru-cache": "^1.0.1",
