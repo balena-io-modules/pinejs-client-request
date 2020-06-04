@@ -1,9 +1,7 @@
 import * as Promise from 'bluebird';
-import { PinejsClientCoreFactory } from 'pinejs-client-core';
+import { PinejsClientCore, Params, AnyObject } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
-
-export { PinejsClientCoreFactory } from 'pinejs-client-core';
 
 interface Cache {
 	get(url: string): Promise<CachedResponse>;
@@ -36,19 +34,11 @@ export interface BackendParams {
 type PromiseObj = Promise<{}>;
 
 const validParams: Array<keyof BackendParams> = ['cache'];
-const PinejsClientCore = PinejsClientCoreFactory(Promise);
-export class PinejsClientRequest extends PinejsClientCore<
-	PinejsClientRequest,
-	PromiseObj,
-	Promise<PinejsClientCoreFactory.PromiseResultTypes>
-> {
+export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 	public backendParams: BackendParams = {};
 	private cache?: Cache;
 
-	constructor(
-		params: PinejsClientCoreFactory.Params,
-		backendParams?: BackendParams,
-	) {
+	constructor(params: Params, backendParams?: BackendParams) {
 		super(params);
 		if (backendParams != null && typeof backendParams === 'object') {
 			for (const validParam of validParams) {
@@ -66,8 +56,8 @@ export class PinejsClientRequest extends PinejsClientCore<
 		params: {
 			method: string;
 			url: string;
-			body?: PinejsClientCoreFactory.AnyObject;
-		} & PinejsClientCoreFactory.AnyObject,
+			body?: AnyObject;
+		} & AnyObject,
 	): PromiseObj {
 		// We default to gzip on for efficiency.
 		if (params.gzip == null) {
