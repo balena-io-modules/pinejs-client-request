@@ -1,4 +1,3 @@
-import * as Promise from 'bluebird';
 import { PinejsClientCore, Params, AnyObject } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
@@ -13,7 +12,20 @@ interface BluebirdLRU {
 }
 const getBluebirdLRU = (): BluebirdLRU => require('bluebird-lru-cache');
 
-const requestAsync = Promise.promisify(request);
+const requestAsync = (
+	opts:
+		| (request.UriOptions & request.CoreOptions)
+		| (request.UrlOptions & request.CoreOptions),
+): Promise<request.Response> =>
+	new Promise((resolve, reject) => {
+		request(opts, (err, response) => {
+			if (err) {
+				reject(err);
+				return;
+			}
+			resolve(response);
+		});
+	});
 
 export class StatusError extends TypedError {
 	constructor(message: string, public statusCode: number) {

@@ -20,10 +20,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/bluebird": "^3.5.32",
     "@types/lodash": "^4.14.155",
     "@types/request": "^2.48.5",
-    "bluebird": "^3.7.2",
     "bluebird-lru-cache": "^1.0.1",
     "lodash": "^4.17.15",
     "pinejs-client-core": "^6.0.0",
