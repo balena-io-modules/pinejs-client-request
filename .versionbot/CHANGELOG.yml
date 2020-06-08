@@ -1,4 +1,14 @@
 - commits:
+    - subject: Convert some lodash usage to native versions
+      hash: 93aaa1f518859bbe08a5746fbb1668c9fd446ae3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 6.1.4
+  date: 2020-06-08T11:53:33.697Z
+- commits:
     - subject: Remove unused dependencies
       hash: 58a13f0fbe9692be029812db19f22aac7bd6f0f9
       body: ''
