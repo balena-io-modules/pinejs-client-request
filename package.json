@@ -12,15 +12,16 @@
   "scripts": {
     "lint:fix": "balena-lint --typescript --fix request.ts",
     "lint": "balena-lint --typescript request.ts",
-    "pretest": "npm run lint",
-    "test": "npm run prepublishOnly",
+    "build": "tsc",
+    "test": "npm run build",
+    "posttest": "npm run lint",
     "prepublish": "require-npm4-to-publish",
-    "prepublishOnly": "tsc"
+    "prepare": "npm run build"
   },
   "license": "MIT",
   "dependencies": {
     "@types/bluebird": "^3.5.32",
-    "@types/lodash": "^4.14.154",
+    "@types/lodash": "^4.14.155",
     "@types/request": "^2.48.5",
     "bluebird": "^3.7.2",
     "bluebird-lru-cache": "^1.0.1",
@@ -32,9 +33,9 @@
   "devDependencies": {
     "@balena/lint": "^5.1.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.7",
+    "lint-staged": "^10.2.9",
     "require-npm4-to-publish": "^1.0.0",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.5"
   },
   "husky": {
     "hooks": {

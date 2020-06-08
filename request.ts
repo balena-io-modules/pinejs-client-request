@@ -1,5 +1,5 @@
 import * as Promise from 'bluebird';
-import * as _ from 'lodash';
+import { cloneDeep } from 'lodash';
 import { PinejsClientCoreFactory } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
@@ -52,8 +52,12 @@ export class PinejsClientRequest extends PinejsClientCore<
 		backendParams?: BackendParams,
 	) {
 		super(params);
-		if (backendParams != null && _.isObject(backendParams)) {
-			_.assign(this.backendParams, _.pick(backendParams, validParams));
+		if (backendParams != null && typeof backendParams === 'object') {
+			for (const validParam of validParams) {
+				if (backendParams.hasOwnProperty(validParam)) {
+					this.backendParams[validParam] = backendParams[validParam];
+				}
+			}
 		}
 		if (this.backendParams.cache != null) {
 			this.cache = BluebirdLRU(this.backendParams.cache);
@@ -122,7 +126,7 @@ export class PinejsClientRequest extends PinejsClientCore<
 				})
 				.then((cached) => {
 					this.cache!.set(params.url, cached);
-					return _.cloneDeep(cached.body);
+					return cloneDeep(cached.body);
 				});
 		} else {
 			return requestAsync(params).then(({ statusCode, body }) => {
