@@ -1,5 +1,4 @@
 import * as Promise from 'bluebird';
-import { cloneDeep } from 'lodash';
 import { PinejsClientCoreFactory } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
@@ -12,10 +11,9 @@ interface Cache {
 }
 interface BluebirdLRU {
 	(params: { [index: string]: any }): Cache;
-	NoSuchKeyError: TypedError;
+	NoSuchKeyError: typeof TypedError;
 }
-// tslint:disable-next-line:no-var-requires
-const BluebirdLRU: BluebirdLRU = require('bluebird-lru-cache');
+const getBluebirdLRU = (): BluebirdLRU => require('bluebird-lru-cache');
 
 const requestAsync = Promise.promisify(request);
 
@@ -60,7 +58,7 @@ export class PinejsClientRequest extends PinejsClientCore<
 			}
 		}
 		if (this.backendParams.cache != null) {
-			this.cache = BluebirdLRU(this.backendParams.cache);
+			this.cache = getBluebirdLRU()(this.backendParams.cache);
 		}
 	}
 
@@ -111,21 +109,25 @@ export class PinejsClientRequest extends PinejsClientCore<
 						},
 					);
 				})
-				.catch(BluebirdLRU.NoSuchKeyError, () => {
-					return requestAsync(params).then(
-						({ statusCode, body, headers }): CachedResponse => {
-							if (200 <= statusCode && statusCode < 300) {
-								return {
-									etag: headers.etag as string,
-									body,
-								};
-							}
-							throw new StatusError(body, statusCode);
-						},
-					);
+				.catch((err) => {
+					if (err instanceof getBluebirdLRU().NoSuchKeyError) {
+						return requestAsync(params).then(
+							({ statusCode, body, headers }): CachedResponse => {
+								if (200 <= statusCode && statusCode < 300) {
+									return {
+										etag: headers.etag as string,
+										body,
+									};
+								}
+								throw new StatusError(body, statusCode);
+							},
+						);
+					}
+					throw err;
 				})
 				.then((cached) => {
 					this.cache!.set(params.url, cached);
+					const { cloneDeep } = require('lodash') as typeof import('lodash');
 					return cloneDeep(cached.body);
 				});
 		} else {
