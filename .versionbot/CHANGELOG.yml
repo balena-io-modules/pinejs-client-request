@@ -1,4 +1,14 @@
 - commits:
+    - subject: Lazy load bluebird-lru-cache and lodash
+      hash: a2b6b74600b9ddecc98cb90a5d2d9ca28495b835
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Pagan Gazzard
+  version: 6.2.0
+  date: 2020-06-08T15:32:03.904Z
+- commits:
     - subject: Convert some lodash usage to native versions
       hash: 93aaa1f518859bbe08a5746fbb1668c9fd446ae3
       body: ''
