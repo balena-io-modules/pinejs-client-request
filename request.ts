@@ -1,21 +1,23 @@
-import * as Promise from 'bluebird';
-import { PinejsClientCoreFactory } from 'pinejs-client-core';
+import type * as LruCache from 'lru-cache';
+
+import { PinejsClientCore, Params, AnyObject } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
 
-export { PinejsClientCoreFactory } from 'pinejs-client-core';
-
-interface Cache {
-	get(url: string): Promise<CachedResponse>;
-	set(url: string, value: CachedResponse): void;
-}
-interface BluebirdLRU {
-	(params: { [index: string]: any }): Cache;
-	NoSuchKeyError: typeof TypedError;
-}
-const getBluebirdLRU = (): BluebirdLRU => require('bluebird-lru-cache');
-
-const requestAsync = Promise.promisify(request);
+const requestAsync = (
+	opts:
+		| (request.UriOptions & request.CoreOptions)
+		| (request.UrlOptions & request.CoreOptions),
+): Promise<request.Response> =>
+	new Promise((resolve, reject) => {
+		request(opts, (err, response) => {
+			if (err) {
+				reject(err);
+				return;
+			}
+			resolve(response);
+		});
+	});
 
 export class StatusError extends TypedError {
 	constructor(message: string, public statusCode: number) {
@@ -29,26 +31,15 @@ interface CachedResponse {
 }
 
 export interface BackendParams {
-	cache?: {
-		[index: string]: any;
-	};
+	cache?: LruCache.Options<string, CachedResponse>;
 }
-type PromiseObj = Promise<{}>;
 
 const validParams: Array<keyof BackendParams> = ['cache'];
-const PinejsClientCore = PinejsClientCoreFactory(Promise);
-export class PinejsClientRequest extends PinejsClientCore<
-	PinejsClientRequest,
-	PromiseObj,
-	Promise<PinejsClientCoreFactory.PromiseResultTypes>
-> {
+export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 	public backendParams: BackendParams = {};
-	private cache?: Cache;
+	private cache?: LruCache<string, CachedResponse>;
 
-	constructor(
-		params: PinejsClientCoreFactory.Params,
-		backendParams?: BackendParams,
-	) {
+	constructor(params: Params, backendParams?: BackendParams) {
 		super(params);
 		if (backendParams != null && typeof backendParams === 'object') {
 			for (const validParam of validParams) {
@@ -58,17 +49,18 @@ export class PinejsClientRequest extends PinejsClientCore<
 			}
 		}
 		if (this.backendParams.cache != null) {
-			this.cache = getBluebirdLRU()(this.backendParams.cache);
+			const LRU = require('lru-cache') as typeof import('lru-cache');
+			this.cache = new LRU(this.backendParams.cache);
 		}
 	}
 
-	public _request(
+	public async _request(
 		params: {
 			method: string;
 			url: string;
-			body?: PinejsClientCoreFactory.AnyObject;
-		} & PinejsClientCoreFactory.AnyObject,
-	): PromiseObj {
+			body?: AnyObject;
+		} & AnyObject,
+	): Promise<{}> {
 		// We default to gzip on for efficiency.
 		if (params.gzip == null) {
 			params.gzip = true;
@@ -87,56 +79,34 @@ export class PinejsClientRequest extends PinejsClientCore<
 		if (this.cache != null && params.method === 'GET') {
 			// If the cache is enabled and we are doing a GET then try to use a cached
 			// version, and store whatever the (successful) result is.
-			return this.cache
-				.get(params.url)
-				.then((cached) => {
-					if (params.headers == null) {
-						params.headers = {};
-					}
-					params.headers['If-None-Match'] = cached.etag;
-					return requestAsync(params).then(
-						({ statusCode, body, headers }): CachedResponse => {
-							if (statusCode === 304) {
-								return cached;
-							}
-							if (200 <= statusCode && statusCode < 300) {
-								return {
-									etag: headers.etag as string,
-									body,
-								};
-							}
-							throw new StatusError(body, statusCode);
-						},
-					);
-				})
-				.catch((err) => {
-					if (err instanceof getBluebirdLRU().NoSuchKeyError) {
-						return requestAsync(params).then(
-							({ statusCode, body, headers }): CachedResponse => {
-								if (200 <= statusCode && statusCode < 300) {
-									return {
-										etag: headers.etag as string,
-										body,
-									};
-								}
-								throw new StatusError(body, statusCode);
-							},
-						);
-					}
-					throw err;
-				})
-				.then((cached) => {
-					this.cache!.set(params.url, cached);
-					const { cloneDeep } = require('lodash') as typeof import('lodash');
-					return cloneDeep(cached.body);
-				});
-		} else {
-			return requestAsync(params).then(({ statusCode, body }) => {
-				if (200 <= statusCode && statusCode < 300) {
-					return body;
+			let cached = this.cache.get(params.url);
+			if (cached != null) {
+				if (params.headers == null) {
+					params.headers = {};
 				}
+				params.headers['If-None-Match'] = cached.etag;
+			}
+			const { statusCode, body, headers } = await requestAsync(params);
+			if (statusCode === 304 && cached != null) {
+				// The currently cached version is still valid
+			} else if (200 <= statusCode && statusCode < 300) {
+				cached = {
+					etag: headers.etag as string,
+					body,
+				};
+			} else {
 				throw new StatusError(body, statusCode);
-			});
+			}
+
+			this.cache!.set(params.url, cached);
+			const { cloneDeep } = require('lodash') as typeof import('lodash');
+			return cloneDeep(cached.body);
+		} else {
+			const { statusCode, body } = await requestAsync(params);
+			if (200 <= statusCode && statusCode < 300) {
+				return body;
+			}
+			throw new StatusError(body, statusCode);
 		}
 	}
 }
