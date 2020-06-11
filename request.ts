@@ -1,16 +1,8 @@
+import type * as LruCache from 'lru-cache';
+
 import { PinejsClientCore, Params, AnyObject } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
-
-interface Cache {
-	get(url: string): Promise<CachedResponse>;
-	set(url: string, value: CachedResponse): void;
-}
-interface BluebirdLRU {
-	(params: { [index: string]: any }): Cache;
-	NoSuchKeyError: typeof TypedError;
-}
-const getBluebirdLRU = (): BluebirdLRU => require('bluebird-lru-cache');
 
 const requestAsync = (
 	opts:
@@ -39,15 +31,13 @@ interface CachedResponse {
 }
 
 export interface BackendParams {
-	cache?: {
-		[index: string]: any;
-	};
+	cache?: LruCache.Options<string, CachedResponse>;
 }
 
 const validParams: Array<keyof BackendParams> = ['cache'];
 export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 	public backendParams: BackendParams = {};
-	private cache?: Cache;
+	private cache?: LruCache<string, CachedResponse>;
 
 	constructor(params: Params, backendParams?: BackendParams) {
 		super(params);
@@ -59,7 +49,8 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 			}
 		}
 		if (this.backendParams.cache != null) {
-			this.cache = getBluebirdLRU()(this.backendParams.cache);
+			const LRU = require('lru-cache') as typeof import('lru-cache');
+			this.cache = new LRU(this.backendParams.cache);
 		}
 	}
 
@@ -86,40 +77,27 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 		params.json = true;
 
 		if (this.cache != null && params.method === 'GET') {
-			let cached: CachedResponse;
-			try {
-				// If the cache is enabled and we are doing a GET then try to use a cached
-				// version, and store whatever the (successful) result is.
-				cached = await this.cache.get(params.url);
+			// If the cache is enabled and we are doing a GET then try to use a cached
+			// version, and store whatever the (successful) result is.
+			let cached = this.cache.get(params.url);
+			if (cached != null) {
 				if (params.headers == null) {
 					params.headers = {};
 				}
 				params.headers['If-None-Match'] = cached.etag;
-				const { statusCode, body, headers } = await requestAsync(params);
-				if (statusCode === 304) {
-					// The currently cached version is still valid
-				} else if (200 <= statusCode && statusCode < 300) {
-					cached = {
-						etag: headers.etag as string,
-						body,
-					};
-				} else {
-					throw new StatusError(body, statusCode);
-				}
-			} catch (err) {
-				if (!(err instanceof getBluebirdLRU().NoSuchKeyError)) {
-					throw err;
-				}
-				const { statusCode, body, headers } = await requestAsync(params);
-				if (200 <= statusCode && statusCode < 300) {
-					cached = {
-						etag: headers.etag as string,
-						body,
-					};
-				} else {
-					throw new StatusError(body, statusCode);
-				}
 			}
+			const { statusCode, body, headers } = await requestAsync(params);
+			if (statusCode === 304 && cached != null) {
+				// The currently cached version is still valid
+			} else if (200 <= statusCode && statusCode < 300) {
+				cached = {
+					etag: headers.etag as string,
+					body,
+				};
+			} else {
+				throw new StatusError(body, statusCode);
+			}
+
 			this.cache!.set(params.url, cached);
 			const { cloneDeep } = require('lodash') as typeof import('lodash');
 			return cloneDeep(cached.body);
