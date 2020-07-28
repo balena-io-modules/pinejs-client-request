@@ -65,9 +65,9 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 		if (params.gzip == null) {
 			params.gzip = true;
 		}
-		// We default to a 30s timeout, rather than hanging indefinitely.
+		// We default to a 59s timeout, rather than hanging indefinitely.
 		if (params.timeout == null) {
-			params.timeout = 30000;
+			params.timeout = 59000;
 		}
 		// We default to enforcing valid ssl certificates, after all there's a reason we're using them!
 		if (params.strictSSL == null) {
