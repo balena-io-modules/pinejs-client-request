@@ -1,4 +1,15 @@
 - commits:
+    - subject: Increase default timeout to 59s
+      hash: fc17266fe147bf40086feb81b6c96a344bf74f29
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 7.0.1
+  date: 2020-07-28T10:29:41.385Z
+- commits:
     - subject: Empty commit to attempt republish
       hash: 72c0214672a1e552cb8fa63f9a96aa47b5db19b1
       body: ''
