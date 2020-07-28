@@ -20,21 +20,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.14.155",
+    "@types/lodash": "^4.14.158",
     "@types/lru-cache": "^5.1.0",
     "@types/request": "^2.48.5",
-    "lodash": "^4.17.15",
-    "lru-cache": "^5.1.1",
-    "pinejs-client-core": "^6.0.0",
+    "lodash": "^4.17.19",
+    "lru-cache": "^6.0.0",
+    "pinejs-client-core": "^6.1.0",
     "request": "^2.88.2",
     "typed-error": "^3.2.0"
   },
   "devDependencies": {
     "@balena/lint": "^5.1.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.9",
+    "lint-staged": "^10.2.11",
     "require-npm4-to-publish": "^1.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.7"
   },
   "husky": {
     "hooks": {
