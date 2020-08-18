@@ -1,4 +1,36 @@
 - commits:
+    - subject: Update dependencies
+      hash: f4502c9364bb5dd3ac4cb7242b8d08dca047b8ee
+      body: |
+        Update pinejs-client-core from 6.6.1 to 6.7.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested:
+        - commits:
+            - subject: Fix prepare $count typings
+              hash: fe63b2ba648b0ef545afe9fd18d433faca4af6a2
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+          version: pinejs-client-js-6.7.1
+          date: 2020-08-12T14:30:20.061Z
+        - commits:
+            - subject: Improve typings for request/post/put/patch/delete
+              hash: 32c0d5b40c14e44155391099a9051255c38b1c05
+              body: ''
+              footer:
+                Change-type: minor
+                change-type: minor
+              author: Pagan Gazzard
+          version: pinejs-client-js-6.7.0
+          date: 2020-08-12T13:42:49.438Z
+  version: 7.2.1
+  date: 2020-08-18T17:01:01.637Z
+- commits:
     - subject: Update pinejs-client-core to 6.6.1
       hash: 8b45f326d07939279b5c4271c74579cdf5da3bb3
       body: |
