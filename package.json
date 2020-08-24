@@ -25,16 +25,16 @@
     "@types/request": "^2.48.5",
     "lodash": "^4.17.20",
     "lru-cache": "^6.0.0",
-    "pinejs-client-core": "^6.7.1",
+    "pinejs-client-core": "^6.7.2",
     "request": "^2.88.2",
     "typed-error": "^3.2.1"
   },
   "devDependencies": {
-    "@balena/lint": "^5.1.0",
+    "@balena/lint": "^5.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "require-npm4-to-publish": "^1.0.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "husky": {
     "hooks": {
