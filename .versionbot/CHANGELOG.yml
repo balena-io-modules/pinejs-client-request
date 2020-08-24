@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update dev dependencies
+      hash: 65948663c760b5b33d5f294adcf555bb57baa11c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 7.2.2
+  date: 2020-08-24T12:24:16.294Z
+- commits:
     - subject: Update dependencies
       hash: f4502c9364bb5dd3ac4cb7242b8d08dca047b8ee
       body: |
