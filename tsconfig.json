@@ -2,12 +2,11 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"noImplicitAny": true,
+		"strict": true,
 		"noUnusedParameters": true,
 		"noUnusedLocals": true,
 		"removeComments": true,
 		"preserveConstEnums": true,
-		"strictNullChecks": true,
 		"sourceMap": true,
 		"target": "es2018",
 		"declaration": true,
