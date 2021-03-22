@@ -1,4 +1,36 @@
 - commits:
+    - subject: Enable typescript strict mode
+      hash: 23d43e8d6974f87745d7c7ef04084223c4a9556f
+      body: |
+        Update pinejs-client-core from 6.9.3 to 6.9.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested:
+        - commits:
+            - subject: Enable strict tsconfig options by default
+              hash: 8ad51e0af76b9e6c1676a0e4069d851f7b3c5211
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+          version: pinejs-client-js-6.9.5
+          date: 2021-03-22T14:28:40.467Z
+        - commits:
+            - subject: Update dependencies
+              hash: 764a29ab100601362e2018c8867be7e66ea10c71
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+          version: pinejs-client-js-6.9.4
+          date: 2021-03-10T20:28:20.915Z
+  version: 7.3.1
+  date: 2021-03-22T15:00:22.209Z
+- commits:
     - subject: Update dependencies
       hash: 0ed7686c1efca57f95034dd084e070859d7955b9
       body: |
