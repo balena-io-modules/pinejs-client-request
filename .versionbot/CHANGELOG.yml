@@ -1,4 +1,19 @@
 - commits:
+    - subject: Delete CODEOWNERS
+      hash: f2310987fff9733caf748c1dab49dd254d3a2267
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        See: >-
+          https://www.flowdock.com/app/rulemotion/pub/threads/trLcZFnSX9fLZn4LiaIv4xuBbah
+        see: >-
+          https://www.flowdock.com/app/rulemotion/pub/threads/trLcZFnSX9fLZn4LiaIv4xuBbah
+      author: Thodoris Greasidis
+      nested: []
+  version: 7.3.2
+  date: 2021-06-30T21:42:35.086Z
+- commits:
     - subject: Enable typescript strict mode
       hash: 23d43e8d6974f87745d7c7ef04084223c4a9556f
       body: |
