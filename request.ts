@@ -62,17 +62,11 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 		} & AnyObject,
 	): Promise<{}> {
 		// We default to gzip on for efficiency.
-		if (params.gzip == null) {
-			params.gzip = true;
-		}
+		params.gzip ??= true;
 		// We default to a 59s timeout, rather than hanging indefinitely.
-		if (params.timeout == null) {
-			params.timeout = 59000;
-		}
+		params.timeout ??= 59000;
 		// We default to enforcing valid ssl certificates, after all there's a reason we're using them!
-		if (params.strictSSL == null) {
-			params.strictSSL = true;
-		}
+		params.strictSSL ??= true;
 		// The request is always a json request.
 		params.json = true;
 
@@ -81,9 +75,7 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 			// version, and store whatever the (successful) result is.
 			let cached = this.cache.get(params.url);
 			if (cached != null) {
-				if (params.headers == null) {
-					params.headers = {};
-				}
+				params.headers ??= {};
 				params.headers['If-None-Match'] = cached.etag;
 			}
 			const { statusCode, body, headers } = await requestAsync(params);
