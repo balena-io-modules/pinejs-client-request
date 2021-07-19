@@ -1,6 +1,6 @@
 {
   "name": "pinejs-client-request",
-  "version": "7.3.2",
+  "version": "7.3.3",
   "description": "This module provides a request backend for pinejs-client.",
   "main": "request.js",
   "types": "request.d.ts",
@@ -45,5 +45,8 @@
     "*.ts": [
       "balena-lint --typescript --fix"
     ]
+  },
+  "versionist": {
+    "publishedAt": "2021-07-19T14:49:37.352Z"
   }
 }

@@ -1,4 +1,15 @@
 - commits:
+    - subject: Make use of nullish coalescing assignment where possible
+      hash: 0f9d3b810d69d3c1a059bac993db54c16caeedb2
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 7.3.3
+  date: 2021-07-19T14:49:37.263Z
+- commits:
     - subject: Delete CODEOWNERS
       hash: f2310987fff9733caf748c1dab49dd254d3a2267
       body: ''
