@@ -1,4 +1,15 @@
 - commits:
+    - subject: Bump version of pinejs-client-core
+      hash: ecb47034cbea2ee328151cbc5af3bbab81ea993c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Paul Jonathan Zoulin
+      nested: []
+  version: 7.3.4
+  date: 2022-01-25T15:18:24.533Z
+- commits:
     - subject: Make use of nullish coalescing assignment where possible
       hash: 0f9d3b810d69d3c1a059bac993db54c16caeedb2
       body: ''
