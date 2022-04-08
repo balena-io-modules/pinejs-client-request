@@ -10,8 +10,8 @@
   },
   "author": "Pagan Gazzard <page@resin.io>",
   "scripts": {
-    "lint:fix": "balena-lint --typescript --fix request.ts",
-    "lint": "balena-lint --typescript request.ts",
+    "lint:fix": "balena-lint --fix request.ts",
+    "lint": "balena-lint request.ts",
     "build": "tsc",
     "test": "npm run build",
     "posttest": "npm run lint",
@@ -20,21 +20,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.14.168",
-    "@types/lru-cache": "^5.1.0",
-    "@types/request": "^2.48.5",
+    "@types/lodash": "^4.14.181",
+    "@types/lru-cache": "^5.1.1",
+    "@types/request": "^2.48.8",
     "lodash": "^4.17.21",
     "lru-cache": "^6.0.0",
-    "pinejs-client-core": "^6.10.0",
+    "pinejs-client-core": "^6.10.2",
     "request": "^2.88.2",
     "typed-error": "^3.2.1"
   },
   "devDependencies": {
-    "@balena/lint": "^5.4.1",
+    "@balena/lint": "^6.2.0",
     "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^12.3.7",
     "require-npm4-to-publish": "^1.0.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.6.3"
   },
   "husky": {
     "hooks": {
@@ -43,7 +43,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "balena-lint --typescript --fix"
+      "balena-lint --fix"
     ]
   },
   "versionist": {
