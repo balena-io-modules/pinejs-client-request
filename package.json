@@ -9,6 +9,10 @@
     "url": "git@github.com:resin-io-modules/pinejs-client-request.git"
   },
   "author": "Pagan Gazzard <page@resin.io>",
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "lint:fix": "balena-lint --fix request.ts",
     "lint": "balena-lint request.ts",
