@@ -1,4 +1,26 @@
 - commits:
+    - subject: Specify node 10 as the minimum supported node engine in the package.json
+      hash: b2ff93e1ff0cc1275004010067a48bc0e458bfba
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Thodoris Greasidis <thodoris@balena.io>
+        signed-off-by: Thodoris Greasidis <thodoris@balena.io>
+      author: Thodoris Greasidis
+      nested: []
+    - subject: Replace balenaCI with flowzone
+      hash: 6d6c90a99c27b0a64e497f521cf7adb55c18ec2e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+      nested: []
+  version: 7.3.6
+  title: ""
+  date: 2022-09-26T09:40:32.762Z
+- commits:
     - subject: Update dependencies
       hash: b972f9bba9510ebe4b4a4e80359f6bad178d61b8
       body: |
