@@ -1,4 +1,18 @@
 - commits:
+    - subject: Respect the Retry-After header in request retries
+      hash: f8b6fa30b0b43edd269f988ff241a2a3fa3c892f
+      body: ""
+      footer:
+        Depends-on: https://github.com/balena-io-modules/pinejs-client-js/pull/141
+        depends-on: https://github.com/balena-io-modules/pinejs-client-js/pull/141
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+  version: 7.4.0
+  title: ""
+  date: 2023-12-05T15:30:32.898Z
+- commits:
     - subject: Update flowzone.yml
       hash: 9482758e9e575616ceb826d859fb28823f3b83f5
       body: ""
