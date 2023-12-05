@@ -19,9 +19,22 @@ const requestAsync = (
 		});
 	});
 
+const headersOfInterest = ['retry-after'] as const;
+
 export class StatusError extends TypedError {
-	constructor(message: string, public statusCode: number) {
+	public headers: Pick<
+		request.Response['headers'],
+		(typeof headersOfInterest)[number]
+	>;
+
+	constructor(
+		message: string,
+		public statusCode: number,
+		headers: request.Response['headers'],
+	) {
 		super(message);
+		const { pick } = require('lodash') as typeof import('lodash');
+		this.headers = pick(headers, headersOfInterest);
 	}
 }
 
@@ -40,6 +53,19 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 	private cache?: LruCache<string, CachedResponse>;
 
 	constructor(params: Params, backendParams?: BackendParams) {
+		if (params?.retry && params.retry.getRetryAfterHeader == null) {
+			params = {
+				...params,
+				retry: {
+					...params.retry,
+					getRetryAfterHeader(err) {
+						if (err instanceof StatusError) {
+							return err.headers['retry-after'];
+						}
+					},
+				},
+			};
+		}
 		super(params);
 		if (backendParams != null && typeof backendParams === 'object') {
 			for (const validParam of validParams) {
@@ -87,18 +113,18 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 					body,
 				};
 			} else {
-				throw new StatusError(body, statusCode);
+				throw new StatusError(body, statusCode, headers);
 			}
 
 			this.cache!.set(params.url, cached);
 			const { cloneDeep } = require('lodash') as typeof import('lodash');
 			return cloneDeep(cached.body);
 		} else {
-			const { statusCode, body } = await requestAsync(params);
+			const { statusCode, body, headers } = await requestAsync(params);
 			if (200 <= statusCode && statusCode < 300) {
 				return body;
 			}
-			throw new StatusError(body, statusCode);
+			throw new StatusError(body, statusCode, headers);
 		}
 	}
 }
