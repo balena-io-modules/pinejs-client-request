@@ -20,25 +20,25 @@
     "test": "npm run build",
     "posttest": "npm run lint",
     "prepublish": "require-npm4-to-publish",
-    "prepare": "npm run build"
+    "prepare": "node -e \"try { (await import('husky')).default() } catch (e) { if (e.code !== 'ERR_MODULE_NOT_FOUND') throw e }\" --input-type module && npm run build"
   },
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.14.181",
+    "@types/lodash": "^4.17.4",
     "@types/lru-cache": "^5.1.1",
-    "@types/request": "^2.48.8",
+    "@types/request": "^2.48.12",
     "lodash": "^4.17.21",
     "lru-cache": "^6.0.0",
-    "pinejs-client-core": "^6.14.0",
+    "pinejs-client-core": "^6.14.6",
     "request": "^2.88.2",
-    "typed-error": "^3.2.1"
+    "typed-error": "^3.2.2"
   },
   "devDependencies": {
-    "@balena/lint": "^6.2.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^12.3.7",
+    "@balena/lint": "^8.0.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
     "require-npm4-to-publish": "^1.0.0",
-    "typescript": "^4.6.3"
+    "typescript": "^5.4.5"
   },
   "husky": {
     "hooks": {
