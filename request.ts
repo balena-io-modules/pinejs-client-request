@@ -1,6 +1,7 @@
 import type * as LruCache from 'lru-cache';
 
-import { PinejsClientCore, Params, AnyObject } from 'pinejs-client-core';
+import type { Params, AnyObject } from 'pinejs-client-core';
+import { PinejsClientCore } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
 
@@ -33,6 +34,7 @@ export class StatusError extends TypedError {
 		headers: request.Response['headers'],
 	) {
 		super(message);
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
 		const { pick } = require('lodash') as typeof import('lodash');
 		this.headers = pick(headers, headersOfInterest);
 	}
@@ -69,12 +71,13 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 		super(params);
 		if (backendParams != null && typeof backendParams === 'object') {
 			for (const validParam of validParams) {
-				if (backendParams.hasOwnProperty(validParam)) {
+				if (Object.prototype.hasOwnProperty.call(backendParams, validParam)) {
 					this.backendParams[validParam] = backendParams[validParam];
 				}
 			}
 		}
 		if (this.backendParams.cache != null) {
+			// eslint-disable-next-line @typescript-eslint/no-var-requires
 			const LRU = require('lru-cache') as typeof import('lru-cache');
 			this.cache = new LRU(this.backendParams.cache);
 		}
@@ -86,7 +89,7 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 			url: string;
 			body?: AnyObject;
 		} & AnyObject,
-	): Promise<{}> {
+	): Promise<NonNullable<unknown>> {
 		// We default to gzip on for efficiency.
 		params.gzip ??= true;
 		// We default to a 59s timeout, rather than hanging indefinitely.
@@ -117,6 +120,7 @@ export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
 			}
 
 			this.cache!.set(params.url, cached);
+			// eslint-disable-next-line @typescript-eslint/no-var-requires
 			const { cloneDeep } = require('lodash') as typeof import('lodash');
 			return cloneDeep(cached.body);
 		} else {
