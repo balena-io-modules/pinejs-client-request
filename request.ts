@@ -26,7 +26,7 @@ export class StatusError extends TypedError {
 	public headers: Pick<
 		request.Response['headers'],
 		(typeof headersOfInterest)[number]
-	>;
+	> = {};
 
 	constructor(
 		message: string,
@@ -34,9 +34,9 @@ export class StatusError extends TypedError {
 		headers: request.Response['headers'],
 	) {
 		super(message);
-		// eslint-disable-next-line @typescript-eslint/no-var-requires
-		const { pick } = require('lodash') as typeof import('lodash');
-		this.headers = pick(headers, headersOfInterest);
+		for (const header of headersOfInterest) {
+			this.headers[header] = headers[header];
+		}
 	}
 }
 
