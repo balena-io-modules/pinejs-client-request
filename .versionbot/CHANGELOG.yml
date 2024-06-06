@@ -1,4 +1,122 @@
 - commits:
+    - subject: Update dependencies
+      hash: 886d59d8e930132dfe30301e799e9da6a6f23b00
+      body: |
+        Update @balena/lint from 6.2.0 to 8.0.2
+        Update pinejs-client-core from 6.14.0 to 6.14.6
+        Update typed-error from 3.2.1 to 3.2.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested:
+        - commits:
+            - subject: Delete CODEOWNERS
+              hash: 8b3f4191d9ff1f27ee2c2d56cfc23cdc5d823fdc
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: dfunckt
+              nested: []
+            - subject: Update dependencies
+              hash: 772e63f730d59009b84d33140fe76f23961c2a7a
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Thodoris Greasidis
+              nested: []
+            - subject: Replace circleCI with flowzone
+              hash: 33900bc3c8ac7783d157f949c1ec69b032b41d93
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Thodoris Greasidis
+              nested: []
+          version: typed-error-3.2.2
+          title: ""
+          date: 2023-04-20T10:06:29.364Z
+        - commits:
+            - subject: Type $count/$any/$all as needing to be nested in a navigation property
+              hash: 278681eeed59a175159446ec9e036e9f66f879dc
+              body: |
+                eg `$filter: { references__resource: { $any: { ... } } }`
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.6
+          title: ""
+          date: 2024-05-28T17:39:25.074Z
+        - commits:
+            - subject: Use readonly arrays for typings for better compatibility with `as
+                const`
+              hash: aef91ea270e4110ef11a8ee76929acc7e8804b36
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.5
+          title: ""
+          date: 2024-05-28T15:11:57.306Z
+        - commits:
+            - subject: Deprecate the generic `PinejsClient` typing in favor of using `this`
+                for `.clone` typing
+              hash: 010c949c91a1765bec8050140fa35367a8279950
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.4
+          title: ""
+          date: 2024-05-08T01:05:08.480Z
+        - commits:
+            - subject: Update dev dependencies
+              hash: 4042a5be6e35d26f3db74309a5c3e5e3948cb75c
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.3
+          title: ""
+          date: 2024-04-17T15:47:43.685Z
+        - commits:
+            - subject: Improve typings
+              hash: 45240b18c41f7558bed64fb2e5689d58b7742f51
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.2
+          title: ""
+          date: 2024-03-04T16:18:00.230Z
+        - commits:
+            - subject: Update dependencies
+              hash: 4e982dab1dcd6d786e4224b695aa2801c283b9f7
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.1
+          title: ""
+          date: 2024-03-04T16:05:19.595Z
+  version: 7.4.1
+  title: ""
+  date: 2024-06-06T00:08:14.466Z
+- commits:
     - subject: Respect the Retry-After header in request retries
       hash: f8b6fa30b0b43edd269f988ff241a2a3fa3c892f
       body: ""
