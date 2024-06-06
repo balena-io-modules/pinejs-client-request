@@ -1,4 +1,19 @@
 - commits:
+    - subject: Avoid the overhead of loading `lodash` on a status error
+      hash: b73dd343d49bf81ba949413d8b75fc6eb1bed0e5
+      body: |
+        This means that you only opt in to loading lodash if you enable caching
+        which means that in most cases when using this library you will not
+        incur the import cost.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 7.4.2
+  title: ""
+  date: 2024-06-06T14:58:21.972Z
+- commits:
     - subject: Update dependencies
       hash: 886d59d8e930132dfe30301e799e9da6a6f23b00
       body: |
