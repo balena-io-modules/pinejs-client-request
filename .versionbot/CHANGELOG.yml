@@ -1,4 +1,29 @@
 - commits:
+    - subject: Update pinejs-client-core to 6.15.2
+      hash: 178c8ee943ad4c27df8e5452b239788647b66aa1
+      body: |
+        Update pinejs-client-core from 6.15.1 to 6.15.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested:
+        - commits:
+            - subject: Improve $orderby typings when not providing a model
+              hash: 00c8ea6b5281f4d928d73cbe4427239a4ab3e6d8
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.15.2
+          title: ""
+          date: 2024-06-19T11:41:35.544Z
+  version: 7.5.1
+  title: ""
+  date: 2024-06-19T12:18:01.571Z
+- commits:
     - subject: Update pinejs-client-core to add support for using model specific typings
       hash: 8a5d89950adac94282c4fe8794a679b472226167
       body: |
