@@ -1,4 +1,181 @@
 - commits:
+    - subject: Update pinejs-client-core to add support for using model specific typings
+      hash: 8a5d89950adac94282c4fe8794a679b472226167
+      body: |
+        Update pinejs-client-core from 6.14.6 to 6.15.1
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Pagan Gazzard
+      nested:
+        - commits:
+            - subject: Correctly type the `POST` result as being fully deferred
+              hash: 1055a00e740dd2cbf3e418408bed6c5f89b8db0f
+              body: >
+                Previously it did not state so the expanded versions were
+                available in
+
+                the typings even though the result would never actually include
+                them
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.15.1
+          title: ""
+          date: 2024-06-17T16:15:56.769Z
+        - commits:
+            - subject: Add support for using model specific typings
+              hash: 1077e19ef18cc4cede4d6401496a016fef459150
+              body: >
+                This requires passing the model typings when creating the
+                pinejs-client
+
+                instance and will mean that any usage after that will be type
+                checked
+
+                to limit to resources/properties that exist on the model. This
+                covers
+
+                almost all usage but there are some cases we cannot cover as we
+                would
+
+                need typescript support for partial inference of generics, eg
+                for
+
+                lambdas, or to make major changes to the querying interface.
+
+                This work should also be fully backwards compatible such that if
+                you do
+
+                not provide model typings then all typings should continue to
+                work as
+
+                previously
+              footer:
+                Change-type: minor
+                change-type: minor
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.15.0
+          title: ""
+          date: 2024-06-14T10:45:40.382Z
+        - commits:
+            - subject: Deprecate passing `url` to helper functions
+              hash: 5ad1d4a417e2631d70acf7192b7132366a77be3b
+              body: >
+                The intention is that these are use as helpers functions to
+                build the
+
+                url from an object and so passing a `url` directly is not really
+                the
+
+                intent and interferes with improving the typings for the
+                intended case.
+
+                It is still possible to pass urls directly to the `request`
+                function if
+
+                it is essential but the true answer is to support building those
+                urls,
+
+                and using `prepare` if it is necessary
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.13
+          title: ""
+          date: 2024-06-12T13:09:45.863Z
+        - commits:
+            - subject: Type `upsert` and `getOrCreate` as not accepting a `url`
+              hash: f5261feec2d9fd45bb52885d0aed9482f743df5a
+              body: >
+                This is because they are not designed to support using a `url`
+                and are
+
+                likely to break in very weird and unexpected ways, and as such
+                removing
+
+                it from the typing should reduce potential for surprising errors
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.12
+          title: ""
+          date: 2024-06-12T11:12:46.444Z
+        - commits:
+            - subject: Include comments in generated output so that jsdoc is available
+              hash: 0a20be620a68b92ef95ce735eeebe3de0d754b7f
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.11
+          title: ""
+          date: 2024-06-11T15:00:11.283Z
+        - commits:
+            - subject: "Tests: improve typing of tests"
+              hash: d970b64c9400e11ee55c29f16fe489c45b16a957
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.10
+          title: ""
+          date: 2024-06-11T01:32:26.832Z
+        - commits:
+            - subject: Add `$filter` to nested `$count` typings
+              hash: 2774bd0e8b03d6d204df41c2d4ebf3a9d039057e
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.9
+          title: ""
+          date: 2024-06-10T15:33:59.941Z
+        - commits:
+            - subject: "Tests: remove unnecessary/unintended returns"
+              hash: b51e379e6a5b1c6cbc5cb83d6dcf537bc6776b05
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.8
+          title: ""
+          date: 2024-06-10T13:36:27.251Z
+        - commits:
+            - subject: Fix using top level $count downstream
+              hash: 03553a4d582ac8354bf2adc47fbe63fefb587042
+              body: >
+                It's unclear why this doesn't cause typing issues within
+
+                pinejs-client-core itself but it does fail when using it
+                downstream
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-6.14.7
+          title: ""
+          date: 2024-06-06T13:32:31.757Z
+  version: 7.5.0
+  title: ""
+  date: 2024-06-19T06:45:36.484Z
+- commits:
     - subject: Avoid the overhead of loading `lodash` on a status error
       hash: b73dd343d49bf81ba949413d8b75fc6eb1bed0e5
       body: |
