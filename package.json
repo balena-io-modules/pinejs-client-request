@@ -29,7 +29,7 @@
     "@types/request": "^2.48.12",
     "lodash": "^4.17.21",
     "lru-cache": "^6.0.0",
-    "pinejs-client-core": "^6.15.1",
+    "pinejs-client-core": "^6.15.2",
     "request": "^2.88.2",
     "typed-error": "^3.2.2"
   },
