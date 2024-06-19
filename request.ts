@@ -1,6 +1,11 @@
 import type * as LruCache from 'lru-cache';
+import type {
+	Params,
+	AnyObject,
+	AnyResource,
+	Resource,
+} from 'pinejs-client-core';
 
-import type { Params, AnyObject } from 'pinejs-client-core';
 import { PinejsClientCore } from 'pinejs-client-core';
 import * as request from 'request';
 import { TypedError } from 'typed-error';
@@ -50,7 +55,13 @@ export interface BackendParams {
 }
 
 const validParams: Array<keyof BackendParams> = ['cache'];
-export class PinejsClientRequest extends PinejsClientCore<PinejsClientRequest> {
+export class PinejsClientRequest<
+	Model extends {
+		[key in keyof Model]: Resource;
+	} = {
+		[key in string]: AnyResource;
+	},
+> extends PinejsClientCore<unknown, Model> {
 	public backendParams: BackendParams = {};
 	private cache?: LruCache<string, CachedResponse>;
 
