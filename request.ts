@@ -39,8 +39,10 @@ export class StatusError extends TypedError {
 		headers: request.Response['headers'],
 	) {
 		super(message);
-		for (const header of headersOfInterest) {
-			this.headers[header] = headers[header];
+		if (headers != null) {
+			for (const header of headersOfInterest) {
+				this.headers[header] = headers[header];
+			}
 		}
 	}
 }
