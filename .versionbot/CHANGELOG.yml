@@ -1,4 +1,16 @@
 - commits:
+    - subject: Only try to pick headers for a StatusError if headers are passed in
+      hash: dbdd3c596fd12e7dea99a442c89017c248077946
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 7.5.2
+  title: ""
+  date: 2024-06-20T13:19:00.730Z
+- commits:
     - subject: Update pinejs-client-core to 6.15.2
       hash: 178c8ee943ad4c27df8e5452b239788647b66aa1
       body: |
