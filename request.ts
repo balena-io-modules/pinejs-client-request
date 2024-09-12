@@ -63,7 +63,7 @@ export class PinejsClientRequest<
 	} = {
 		[key in string]: AnyResource;
 	},
-> extends PinejsClientCore<unknown, Model> {
+> extends PinejsClientCore<Model> {
 	public backendParams: BackendParams = {};
 	private cache?: LruCache<string, CachedResponse>;
 
