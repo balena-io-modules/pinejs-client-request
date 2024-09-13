@@ -134,9 +134,7 @@ export class PinejsClientRequest<
 			}
 
 			this.cache.set(params.url, cached);
-			// eslint-disable-next-line @typescript-eslint/no-require-imports
-			const { cloneDeep } = require('lodash') as typeof import('lodash');
-			return cloneDeep(cached.body);
+			return structuredClone(cached.body);
 		} else {
 			const { statusCode, body, headers } = await requestAsync(params);
 			if (200 <= statusCode && statusCode < 300) {
