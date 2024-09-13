@@ -6,15 +6,15 @@
   "types": "request.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:resin-io-modules/pinejs-client-request.git"
+    "url": "git@github.com:balena-io-modules/pinejs-client-request.git"
   },
-  "author": "Pagan Gazzard <page@resin.io>",
+  "author": "Pagan Gazzard <page@balena.io>",
   "engines": {
     "node": ">=10.0.0",
     "npm": ">=6.0.0"
   },
   "scripts": {
-    "lint:fix": "balena-lint --fix request.ts",
+    "lint-fix": "balena-lint --fix request.ts",
     "lint": "balena-lint request.ts",
     "build": "tsc",
     "test": "npm run build",
@@ -34,7 +34,7 @@
     "typed-error": "^3.2.2"
   },
   "devDependencies": {
-    "@balena/lint": "^8.0.2",
+    "@balena/lint": "^9.0.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "require-npm4-to-publish": "^1.0.0",

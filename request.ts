@@ -16,7 +16,7 @@ const requestAsync = (
 		| (request.UrlOptions & request.CoreOptions),
 ): Promise<request.Response> =>
 	new Promise((resolve, reject) => {
-		request(opts, (err, response) => {
+		request(opts, (err: Error, response) => {
 			if (err) {
 				reject(err);
 				return;
@@ -90,7 +90,7 @@ export class PinejsClientRequest<
 			}
 		}
 		if (this.backendParams.cache != null) {
-			// eslint-disable-next-line @typescript-eslint/no-var-requires
+			// eslint-disable-next-line @typescript-eslint/no-require-imports
 			const LRU = require('lru-cache') as typeof import('lru-cache');
 			this.cache = new LRU(this.backendParams.cache);
 		}
@@ -125,15 +125,15 @@ export class PinejsClientRequest<
 				// The currently cached version is still valid
 			} else if (200 <= statusCode && statusCode < 300) {
 				cached = {
-					etag: headers.etag as string,
+					etag: headers.etag!,
 					body,
 				};
 			} else {
 				throw new StatusError(body, statusCode, headers);
 			}
 
-			this.cache!.set(params.url, cached);
-			// eslint-disable-next-line @typescript-eslint/no-var-requires
+			this.cache.set(params.url, cached);
+			// eslint-disable-next-line @typescript-eslint/no-require-imports
 			const { cloneDeep } = require('lodash') as typeof import('lodash');
 			return cloneDeep(cached.body);
 		} else {
