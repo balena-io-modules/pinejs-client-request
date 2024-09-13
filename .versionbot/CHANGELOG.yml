@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/lint to 9.x
+      hash: f3641636c18316e38df21b3cd04cc52bf1c66b6b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested: []
+  version: 7.5.3
+  title: ""
+  date: 2024-09-13T06:53:13.210Z
+- commits:
     - subject: Only try to pick headers for a StatusError if headers are passed in
       hash: dbdd3c596fd12e7dea99a442c89017c248077946
       body: ""
