@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
-		"moduleResolution": "node",
+		"module": "Node16",
 		"strict": true,
 		"noUnusedParameters": true,
 		"noUnusedLocals": true,

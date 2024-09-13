@@ -7,7 +7,7 @@ import type {
 } from 'pinejs-client-core';
 
 import { PinejsClientCore } from 'pinejs-client-core';
-import * as request from 'request';
+import request from 'request';
 import { TypedError } from 'typed-error';
 
 const requestAsync = (

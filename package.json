@@ -2,6 +2,7 @@
   "name": "pinejs-client-request",
   "version": "7.5.3",
   "description": "This module provides a request backend for pinejs-client.",
+  "type": "commonjs",
   "main": "request.js",
   "types": "request.d.ts",
   "repository": {
