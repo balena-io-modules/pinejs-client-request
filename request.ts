@@ -1,4 +1,4 @@
-import type * as LruCache from 'lru-cache';
+import type { LRUCache } from 'lru-cache';
 import type {
 	Params,
 	AnyObject,
@@ -7,7 +7,7 @@ import type {
 } from 'pinejs-client-core';
 
 import { PinejsClientCore } from 'pinejs-client-core';
-import * as request from 'request';
+import request from 'request';
 import { TypedError } from 'typed-error';
 
 const requestAsync = (
@@ -53,7 +53,7 @@ interface CachedResponse {
 }
 
 export interface BackendParams {
-	cache?: LruCache.Options<string, CachedResponse>;
+	cache?: LRUCache.Options<string, CachedResponse, unknown>;
 }
 
 const validParams: Array<keyof BackendParams> = ['cache'];
@@ -63,9 +63,9 @@ export class PinejsClientRequest<
 	} = {
 		[key in string]: AnyResource;
 	},
-> extends PinejsClientCore<unknown, Model> {
+> extends PinejsClientCore<Model> {
 	public backendParams: BackendParams = {};
-	private cache?: LruCache<string, CachedResponse>;
+	private cache?: LRUCache<string, CachedResponse>;
 
 	constructor(params: Params, backendParams?: BackendParams) {
 		if (params?.retry && params.retry.getRetryAfterHeader == null) {
@@ -90,8 +90,9 @@ export class PinejsClientRequest<
 			}
 		}
 		if (this.backendParams.cache != null) {
-			// eslint-disable-next-line @typescript-eslint/no-require-imports
-			const LRU = require('lru-cache') as typeof import('lru-cache');
+			const { LRUCache: LRU } =
+				// eslint-disable-next-line @typescript-eslint/no-require-imports
+				require('lru-cache') as typeof import('lru-cache');
 			this.cache = new LRU(this.backendParams.cache);
 		}
 	}
@@ -133,9 +134,7 @@ export class PinejsClientRequest<
 			}
 
 			this.cache.set(params.url, cached);
-			// eslint-disable-next-line @typescript-eslint/no-require-imports
-			const { cloneDeep } = require('lodash') as typeof import('lodash');
-			return cloneDeep(cached.body);
+			return structuredClone(cached.body);
 		} else {
 			const { statusCode, body, headers } = await requestAsync(params);
 			if (200 <= statusCode && statusCode < 300) {

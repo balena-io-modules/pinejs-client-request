@@ -2,6 +2,7 @@
   "name": "pinejs-client-request",
   "version": "7.5.3",
   "description": "This module provides a request backend for pinejs-client.",
+  "type": "commonjs",
   "main": "request.js",
   "types": "request.d.ts",
   "repository": {
@@ -10,8 +11,8 @@
   },
   "author": "Pagan Gazzard <page@balena.io>",
   "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
   },
   "scripts": {
     "lint-fix": "balena-lint --fix request.ts",
@@ -24,12 +25,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.17.5",
-    "@types/lru-cache": "^5.1.1",
     "@types/request": "^2.48.12",
-    "lodash": "^4.17.21",
-    "lru-cache": "^6.0.0",
-    "pinejs-client-core": "^6.15.2",
+    "lru-cache": "^11.0.1",
+    "pinejs-client-core": "^8.0.0",
     "request": "^2.88.2",
     "typed-error": "^3.2.2"
   },
