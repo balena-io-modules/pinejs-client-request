@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update dependency lint-staged to v16
+      hash: c713d1000bb9ff12950890e3ac2dab550fad26e3
+      body: |
+        Update lint-staged from 15.5.2 to 16.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 8.0.2
+  title: ""
+  date: 2025-09-11T11:46:11.395Z
+- commits:
     - subject: Update pinejs-client-core to 8.0.1
       hash: d333ee482ad6602bee28f0d84532cf1a2da66584
       body: |
