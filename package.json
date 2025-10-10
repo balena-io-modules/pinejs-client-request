@@ -27,9 +27,8 @@
   "dependencies": {
     "@types/request": "^2.48.13",
     "lru-cache": "^11.2.1",
-    "pinejs-client-core": "^8.3.2",
-    "request": "^2.88.2",
-    "typed-error": "^3.2.2"
+    "pinejs-client-core": "^8.4.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@balena/lint": "^9.3.6",
