@@ -1,4 +1,47 @@
 - commits:
+    - subject: Sub-class the `StatusError` for errors as pinejs-client-core expects
+      hash: c866977804481b50a81a62bb5a585c1f3ec53bd5
+      body: |
+        This increases standardization across implementations
+
+        Update pinejs-client-core from 8.3.2 to 8.4.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+      nested:
+        - commits:
+            - subject: Add a `StatusError` class that downstream is expected to use for errors
+              hash: 5c589f1ddb12ffac87c13d3daed2bda09d386378
+              body: >
+                This isn't enforced currently but it will help to standardize
+                errors
+
+                across implementations and make it easier to switch between them
+              footer:
+                Change-type: minor
+                change-type: minor
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-8.4.0
+          title: ""
+          date: 2025-10-10T16:59:39.572Z
+        - commits:
+            - subject: "Types: make use of inference for some simplification"
+              hash: 9622554854b58352a581300d7a6cf97b156d2a9a
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: Pagan Gazzard
+              nested: []
+          version: pinejs-client-js-8.3.3
+          title: ""
+          date: 2025-10-10T13:05:32.557Z
+  version: 8.1.1
+  title: ""
+  date: 2025-10-10T17:13:10.933Z
+- commits:
     - subject: Switch to Node20 module resolution
       hash: b2c8478ed1e2c657adda4017aff53bcae4a6e0d8
       body: |
