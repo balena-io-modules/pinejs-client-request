@@ -6,9 +6,11 @@ import type {
 	Resource,
 } from 'pinejs-client-core';
 
-import { PinejsClientCore } from 'pinejs-client-core';
+import {
+	PinejsClientCore,
+	StatusError as CoreStatusError,
+} from 'pinejs-client-core';
 import request from 'request';
-import { TypedError } from 'typed-error';
 
 const requestAsync = (
 	opts:
@@ -27,7 +29,7 @@ const requestAsync = (
 
 const headersOfInterest = ['retry-after'] as const;
 
-export class StatusError extends TypedError {
+export class StatusError extends CoreStatusError {
 	public headers: Pick<
 		request.Response['headers'],
 		(typeof headersOfInterest)[number]
@@ -35,10 +37,10 @@ export class StatusError extends TypedError {
 
 	constructor(
 		message: string,
-		public statusCode: number,
+		statusCode: number,
 		headers: request.Response['headers'],
 	) {
-		super(message);
+		super(message, statusCode);
 		if (headers != null) {
 			for (const header of headersOfInterest) {
 				this.headers[header] = headers[header];
