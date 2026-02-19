@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Add id-token: write permission for NPM OIDC publishing"
+      hash: bec06a4dae797d13b3841e11b89aaa365873c3b7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 8.1.2
+  title: ""
+  date: 2026-02-19T01:58:53.864Z
+- commits:
     - subject: Sub-class the `StatusError` for errors as pinejs-client-core expects
       hash: c866977804481b50a81a62bb5a585c1f3ec53bd5
       body: |
