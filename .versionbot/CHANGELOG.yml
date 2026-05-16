@@ -1,4 +1,17 @@
 - commits:
+    - subject: Pin dependencies
+      hash: f3d1f5ab846b5e74e42c9cd1e868c95f69302eef
+      body: |
+        Update husky
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 8.1.20
+  title: ""
+  date: 2026-05-16T00:23:55.664Z
+- commits:
     - subject: Update dependency lint-staged to v17
       hash: 239b4c57622851e83c65e5f8b6e60e8eac0191fb
       body: |
