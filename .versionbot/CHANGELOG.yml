@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update dependency lint-staged to v17.0.8
+      hash: 9c0fc628780fcbcc109d29dbd622d8ca3e206f54
+      body: |
+        Update lint-staged from 17.0.7 to 17.0.8
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 8.1.24
+  title: ""
+  date: 2026-06-27T00:22:28.577Z
+- commits:
     - subject: Update dependency typescript to v6
       hash: 5c391ecac61086f3f77810e1179a5f36024532c1
       body: |
