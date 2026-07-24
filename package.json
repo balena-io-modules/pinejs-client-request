@@ -26,14 +26,14 @@
   "license": "MIT",
   "dependencies": {
     "@types/request": "^2.48.13",
-    "lru-cache": "^11.2.1",
-    "pinejs-client-core": "^8.4.0",
+    "lru-cache": "^11.5.2",
+    "pinejs-client-core": "^8.5.29",
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "@balena/lint": "^9.3.6",
+    "@balena/lint": "^9.4.6",
     "husky": "9.1.7",
-    "lint-staged": "17.0.8",
+    "lint-staged": "17.2.0",
     "require-npm4-to-publish": "1.0.0",
     "typescript": "6.0.3"
   },
