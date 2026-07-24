@@ -1,6 +1,6 @@
 {
   "name": "pinejs-client-request",
-  "version": "8.1.24",
+  "version": "8.2.0",
   "description": "This module provides a request backend for pinejs-client.",
   "type": "commonjs",
   "main": "request.js",
@@ -48,6 +48,6 @@
     ]
   },
   "versionist": {
-    "publishedAt": "2026-06-27T00:22:28.715Z"
+    "publishedAt": "2026-07-24T17:20:06.800Z"
   }
 }
