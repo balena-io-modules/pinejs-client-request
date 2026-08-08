@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update dependency lint-staged to v17.3.0
+      hash: 103e220146d9403b35b5d170927745d21687e482
+      body: |
+        Update lint-staged from 17.2.0 to 17.3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 8.2.1
+  title: ""
+  date: 2026-08-08T00:07:09.482Z
+- commits:
     - subject: Update pinejs-client-core to 8.5.29
       hash: cd07bd7a8b76a2703f111abb8fe8770ae98ddc5f
       body: |
