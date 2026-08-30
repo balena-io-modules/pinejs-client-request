@@ -33,7 +33,7 @@
   "devDependencies": {
     "@balena/lint": "^9.4.6",
     "husky": "9.1.7",
-    "lint-staged": "17.3.0",
+    "lint-staged": "17.4.1",
     "require-npm4-to-publish": "1.0.0",
     "typescript": "6.0.3"
   },
