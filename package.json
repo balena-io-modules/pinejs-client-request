@@ -35,7 +35,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.4.1",
     "require-npm4-to-publish": "1.0.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "husky": {
     "hooks": {
