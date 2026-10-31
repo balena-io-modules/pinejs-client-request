@@ -31,7 +31,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "@balena/lint": "^9.4.6",
+    "@balena/lint": "^10.0.0",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "require-npm4-to-publish": "1.0.0",
